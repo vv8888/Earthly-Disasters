@@ -37,12 +37,12 @@
 </div>
 
 <script>
-	mapboxgl.accessToken = 'pk.eyJ1IjoidmF2ZWRyYWwiLCJhIjoiY21tbGZza2lkMHV5djJyb3B6ejE5OHQ0cyJ9.nBtkHMIbJY2b06uYotwEqg';  //Put your mapbox access token here
+	mapboxgl.accessToken = 'pk.eyJ1IjoidmF2ZWRyYWwiLCJhIjoiY21tbGZza2lkMHV5djJyb3B6ejE5OHQ0cyJ9.nBtkHMIbJY2b06uYotwEqg';
 
         // Load a new map in the 'map' HTML div
         var map = new mapboxgl.Map({
             container: 'map', // container id
-            style: 'mapbox://styles/vavedral/cm8dno1k100rw01sobslx55bu', // Put your mapbox style ID here
+            style: 'mapbox://styles/vavedral/cm8dno1k100rw01sobslx55bu', // Mapbox style ID
             center: [121.4944,38.5781], // starting position [lng, lat]
             zoom: 3 // starting zoom
         });
@@ -56,7 +56,7 @@
                 'type':'circle',
                 'source':{
                     type:'vector',
-                    url:'mapbox://vavedral.9rra8cdt' // Your Mapbox tileset Map ID
+                    url:'mapbox://vavedral.9rra8cdt' // Mapbox tileset Map ID
                 },
                 'source-layer':'earthquakes-2025-03-17_13-21--bk8flv', // name of tilesets
                 'layout':{
@@ -209,6 +209,7 @@
 </body>
 
 </html>
+
 
 
 
