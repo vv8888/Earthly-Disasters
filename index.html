@@ -2,7 +2,7 @@
 
 <head>
 <meta charset="utf-8" />
-<title>Midterm Earthquakes</title>
+<title>Earthquakes</title>
 
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
@@ -12,37 +12,89 @@
 <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
 
 
-<link href = 'style.css' rel = 'stylesheet' />
+<link href = 'Earthquake_styles_v1.css' rel = 'stylesheet' />
 
 </head>
 
 <body>
-<div id="map"></div>
+  <div id="map"></div>
 
+  <!-- Title -->
+  <div id="title-box">Earthquakes: 1800 to 2025</div>
 
-<div class='map-overlay'> 
-    <div class='map-overlay-inner'>
-        <h2> Earthquakes From 1800 to 2025</h2>
-            <div id="slider-container" style="width: 400px; margin: 10px auto;">
-              <div id="year-range-slider"></div>
-              <div style="text-align: center;">
-                <span>Start Year: <span id="slider-start">1800</span></span> &nbsp;&nbsp;
-                <span>End Year: <span id="slider-end">2025</span></span>
-              </div>
-            </div>
-
-        <p class="credit"> This map is created for <a href="https://github.com/vv8888/GES_MidTerm_EQmap.git"> GES Cartography SPR2025 Midterm </a> by using the <a href="https://www.ngdc.noaa.gov/hazel/view/hazards/earthquake/event-data?maxYear=2025&minYear=1800"> NOAA-National Centers For Environmental Information Historical Earthquake Data</a> and <a href='https://www.globalquakemodel.org/product/active-faults-database'>The GEM Foundation's Global Active Faults Dataset</a>  </p>
-        
+  <!-- Slider -->
+  <div class="map-overlay slider-panel">
+    <div class="map-overlay-inner">
+      <div id="slider-container">
+        <div id="year-range-slider"></div>
+        <div class="year-display">
+          <span>Start Year: <span id="slider-start">1800</span></span> ..... 
+          <span>End Year: <span id="slider-end">2025</span></span>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Legend -->
+  <div id="legend">
+    <div class="legend-title">
+      <span>Fatalities</span>
+    </div>
+
+    <div class="fatalities-gradient-wrapper">
+      <div class="fatalities-gradient"></div>
+
+      <div class="fatalities-gradient-labels">
+        <span>Very Many (&gt;1000)</span>
+        <span>Many (101–1000)</span>
+        <span>Some (51–100)</span>
+        <span>Few (1–50)</span>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<!-- Sources Panel -->
+!-- Sources Panel -->
+<div class="map-overlay source-panel">
+  <div class="map-overlay-inner">
+    <div id="data-box">
+      <h3>Data Sources</h3>
+
+      <p>
+        This map was created by
+        <a href="https://vv8888.github.io/Earthly-Disasters/" target="_blank">
+          Vanessa Vedral, March 2025
+        </a>.
+      </p>
+
+      <ul>
+        <li>
+          <a href="https://www.ngdc.noaa.gov/hazel/view/hazards/earthquake/event-data?maxYear=2025&minYear=1800" target="_blank">
+            NOAA National Centers for Environmental Information
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.globalquakemodel.org/product/active-faults-database" target="_blank">
+            GEM Global Active Faults Dataset
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
+
+
 <script>
-	mapboxgl.accessToken = 'pk.eyJ1IjoidmF2ZWRyYWwiLCJhIjoiY203dzRodGJvMDFwdDJ0cHR3OWVidTNzZyJ9.ctvWpYhVUmTHOVgJBI2nRg';
+	mapboxgl.accessToken = 'pk.eyJ1IjoidmF2ZWRyYWwiLCJhIjoiY21tbGZza2lkMHV5djJyb3B6ejE5OHQ0cyJ9.nBtkHMIbJY2b06uYotwEqg';  //Put your mapbox access token here
 
         // Load a new map in the 'map' HTML div
         var map = new mapboxgl.Map({
             container: 'map', // container id
-            style: 'mapbox://styles/vavedral/cm8dno1k100rw01sobslx55bu', // Mapbox style ID
+            style: 'mapbox://styles/vavedral/cm8dno1k100rw01sobslx55bu', // Put your mapbox style ID here
             center: [121.4944,38.5781], // starting position [lng, lat]
             zoom: 3 // starting zoom
         });
@@ -56,7 +108,7 @@
                 'type':'circle',
                 'source':{
                     type:'vector',
-                    url:'mapbox://vavedral.9rra8cdt' // Mapbox tileset Map ID
+                    url:'mapbox://vavedral.9rra8cdt' // Your Mapbox tileset Map ID
                 },
                 'source-layer':'earthquakes-2025-03-17_13-21--bk8flv', // name of tilesets
                 'layout':{
@@ -207,9 +259,7 @@
 </script>
 
 </body>
-
 </html>
-
 
 
 
